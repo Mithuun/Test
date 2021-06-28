@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Form</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <style>
+            .register .nav-tabs .nav-link:hover{
+                border: none;
+            }
+            .text-align{
+                margin-top: -3%;
+                margin-bottom: -9%;
+
+                padding: 10%;
+                margin-left: 30%;
+            }
+            .form-new{
+                margin-right: 25px;
+                margin-left: 25px;
+            }
+            .register-heading{
+                margin-left: 21%;
+                margin-bottom: 10%;
+                color: #e9ecef;
+            }
+            .register-heading h1{
+                margin-left: 21%;
+                margin-bottom: 10%;
+                color: #e9ecef;
+            }
+            .register{
+                background: -webkit-linear-gradient(left, #055a4f, #00c6ff);
+                margin-top: 3%;
+                padding: 3%;
+                border-radius: 2.5rem;
+            }
+            .btnSubmit
+            {
+                width: 50%;
+                border-radius: 1rem;
+                padding: 1.5%;
+                color: #fff;
+                background-color: #03612e;
+                border: none;
+                cursor: pointer;
+                margin-right: 6%;
+                color: rgb(246, 246, 252);
+                margin-top: 4%;
+            }
+
+            .mt-100 {
+                margin-top: 100px
+            }
+
+            .card {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                min-width: 0;
+                word-wrap: break-word;
+                background-color: #fff;
+                background-clip: border-box;
+                border: 1px solid #d2d2dc;
+                border-radius: 0
+            }
+
+            .card .card-body {
+                padding: 1.25rem 1.75rem
+            }
+
+            .card-body {
+                flex: 1 1 auto;
+                padding: 1.25rem
+            }
+
+            .card .card-title {
+                color: #000000;
+                margin-bottom: 0.625rem;
+                text-transform: capitalize;
+                font-size: 0.875rem;
+                font-weight: 500
+            }
+
+            .card .card-description {
+                margin-bottom: .875rem;
+                font-weight: 400;
+                color: #76838f
+            }
+
+            p {
+                font-size: 0.875rem;
+                margin-bottom: .5rem;
+                line-height: 1.5rem
+            }
+
+            @keyframes click-wave {
+                0% {
+                    height: 40px;
+                    width: 40px;
+                    opacity: 0.15;
+                    position: relative
+                }
+
+                100% {
+                    height: 200px;
+                    width: 200px;
+                    margin-left: -80px;
+                    margin-top: -80px;
+                    opacity: 0
+                }
+            }
+
+            .option-input {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                -ms-appearance: none;
+                -o-appearance: none;
+                appearance: none;
+                position: relative;
+                top: 13.33333px;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                height: 40px;
+                width: 40px;
+                transition: all 0.15s ease-out 0s;
+                background: #cbd1d8;
+                border: none;
+                color: #fff;
+                cursor: pointer;
+                display: inline-block;
+                margin-right: 0.5rem;
+                outline: none;
+                position: relative;
+                z-index: 1000
+            }
+
+            .option-input:hover {
+                background: #9faab7
+            }
+
+            .option-input:checked {
+                background: #E91E63
+            }
+
+            .option-input:checked::before {
+                height: 40px;
+                width: 40px;
+                position: absolute;
+                content: "\f111";
+                font-family: "Font Awesome 5 Free";
+                display: inline-block;
+                font-size: 26.66667px;
+                text-align: center;
+                line-height: 40px
+            }
+
+            .option-input:checked::after {
+                -webkit-animation: click-wave 0.25s;
+                -moz-animation: click-wave 0.25s;
+                animation: click-wave 0.25s;
+                background: #E91E63;
+                content: '';
+                display: block;
+                position: relative;
+                z-index: 100
+            }
+
+            .option-input.radio {
+                border-radius: 50%
+            }
+
+            .option-input.radio::after {
+                border-radius: 50%
+            }
+
+            .option-input2 {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                -ms-appearance: none;
+                -o-appearance: none;
+                appearance: none;
+                position: relative;
+                top: 13.33333px;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                height: 40px;
+                width: 40px;
+                transition: all 0.15s ease-out 0s;
+                background: #cbd1d8;
+                border: none;
+                color: #fff;
+                cursor: pointer;
+                display: inline-block;
+                margin-right: 0.5rem;
+                outline: none;
+                position: relative;
+                z-index: 1000
+            }
+
+            .option-input2:hover {
+                background: #9faab7
+            }
+
+            .option-input2:checked {
+                background: #E91E63
+            }
+
+            .option-input2:checked::before {
+                height: 40px;
+                width: 40px;
+                position: absolute;
+                content: "\f111";
+                font-family: "Font Awesome 5 Free";
+                display: inline-block;
+                font-size: 26.66667px;
+                text-align: center;
+                line-height: 40px
+            }
+
+            .option-input2:checked::after {
+                -webkit-animation: click-wave 0.25s;
+                -moz-animation: click-wave 0.25s;
+                animation: click-wave 0.25s;
+                background: #E91E63;
+                content: '';
+                display: block;
+                position: relative;
+                z-index: 100
+            }
+
+            .option-input2.radio {
+                border-radius: 50%
+            }
+
+            .option-input2.radio::after {
+                border-radius: 50%
+            }
+            .option-input3 {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                -ms-appearance: none;
+                -o-appearance: none;
+                appearance: none;
+                position: relative;
+                top: 13.33333px;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                height: 40px;
+                width: 40px;
+                transition: all 0.15s ease-out 0s;
+                background: #cbd1d8;
+                border: none;
+                color: #fff;
+                cursor: pointer;
+                display: inline-block;
+                margin-right: 0.5rem;
+                outline: none;
+                position: relative;
+                z-index: 1000
+            }
+
+            .option-input3:hover {
+                background: #9faab7
+            }
+
+            .option-input3:checked {
+                background: #E91E63
+            }
+
+            .option-input3:checked::before {
+                height: 40px;
+                width: 40px;
+                position: absolute;
+                content: "\f111";
+                font-family: "Font Awesome 5 Free";
+                display: inline-block;
+                font-size: 26.66667px;
+                text-align: center;
+                line-height: 40px
+            }
+
+            .option-input3:checked::after {
+                -webkit-animation: click-wave 0.25s;
+                -moz-animation: click-wave 0.25s;
+                animation: click-wave 0.25s;
+                background: #E91E63;
+                content: '';
+                display: block;
+                position: relative;
+                z-index: 100
+            }
+
+            .option-input3.radio {
+                border-radius: 50%
+            }
+
+            .option-input3.radio::after {
+                border-radius: 50%
+            }
+            .option-input4 {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                -ms-appearance: none;
+                -o-appearance: none;
+                appearance: none;
+                position: relative;
+                top: 13.33333px;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                height: 40px;
+                width: 40px;
+                transition: all 0.15s ease-out 0s;
+                background: #cbd1d8;
+                border: none;
+                color: #fff;
+                cursor: pointer;
+                display: inline-block;
+                margin-right: 0.5rem;
+                outline: none;
+                position: relative;
+                z-index: 1000
+            }
+
+            .option-input4:hover {
+                background: #9faab7
+            }
+
+            .option-input4:checked {
+                background: #E91E63
+            }
+
+            .option-input4:checked::before {
+                height: 40px;
+                width: 40px;
+                position: absolute;
+                content: "\f111";
+                font-family: "Font Awesome 5 Free";
+                display: inline-block;
+                font-size: 26.66667px;
+                text-align: center;
+                line-height: 40px
+            }
+
+            .option-input4:checked::after {
+                -webkit-animation: click-wave 0.25s;
+                -moz-animation: click-wave 0.25s;
+                animation: click-wave 0.25s;
+                background: #E91E63;
+                content: '';
+                display: block;
+                position: relative;
+                z-index: 100
+            }
+
+            .option-input4.radio {
+                border-radius: 50%
+            }
+
+            .option-input4.radio::after {
+                border-radius: 50%
+            }
+            .option-input5 {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                -ms-appearance: none;
+                -o-appearance: none;
+                appearance: none;
+                position: relative;
+                top: 13.33333px;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                height: 40px;
+                width: 40px;
+                transition: all 0.15s ease-out 0s;
+                background: #cbd1d8;
+                border: none;
+                color: #fff;
+                cursor: pointer;
+                display: inline-block;
+                margin-right: 0.5rem;
+                outline: none;
+                position: relative;
+                z-index: 1000
+            }
+
+            .option-input5:hover {
+                background: #9faab7
+            }
+
+            .option-input5:checked {
+                background: #E91E63
+            }
+
+            .option-input5:checked::before {
+                height: 40px;
+                width: 40px;
+                position: absolute;
+                content: "\f111";
+                font-family: "Font Awesome 5 Free";
+                display: inline-block;
+                font-size: 26.66667px;
+                text-align: center;
+                line-height: 40px
+            }
+
+            .option-input5:checked::after {
+                -webkit-animation: click-wave 0.25s;
+                -moz-animation: click-wave 0.25s;
+                animation: click-wave 0.25s;
+                background: #E91E63;
+                content: '';
+                display: block;
+                position: relative;
+                z-index: 100
+            }
+
+            .option-input5.radio {
+                border-radius: 50%
+            }
+
+            .option-input5.radio::after {
+                border-radius: 50%
+            }
+            .option-input6 {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                -ms-appearance: none;
+                -o-appearance: none;
+                appearance: none;
+                position: relative;
+                top: 13.33333px;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                height: 40px;
+                width: 40px;
+                transition: all 0.15s ease-out 0s;
+                background: #cbd1d8;
+                border: none;
+                color: #fff;
+                cursor: pointer;
+                display: inline-block;
+                margin-right: 0.5rem;
+                outline: none;
+                position: relative;
+                z-index: 1000
+            }
+
+            .option-input6:hover {
+                background: #9faab7
+            }
+
+            .option-input6:checked {
+                background: #E91E63
+            }
+
+            .option-input6:checked::before {
+                height: 40px;
+                width: 40px;
+                position: absolute;
+                content: "\f111";
+                font-family: "Font Awesome 5 Free";
+                display: inline-block;
+                font-size: 26.66667px;
+                text-align: center;
+                line-height: 40px
+            }
+
+            .option-input6:checked::after {
+                -webkit-animation: click-wave 0.25s;
+                -moz-animation: click-wave 0.25s;
+                animation: click-wave 0.25s;
+                background: #E91E63;
+                content: '';
+                display: block;
+                position: relative;
+                z-index: 100
+            }
+
+            .option-input6.radio {
+                border-radius: 50%
+            }
+
+            .option-input6.radio::after {
+                border-radius: 50%
+            }
+            .option-input7 {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                -ms-appearance: none;
+                -o-appearance: none;
+                appearance: none;
+                position: relative;
+                top: 13.33333px;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                height: 40px;
+                width: 40px;
+                transition: all 0.15s ease-out 0s;
+                background: #cbd1d8;
+                border: none;
+                color: #fff;
+                cursor: pointer;
+                display: inline-block;
+                margin-right: 0.5rem;
+                outline: none;
+                position: relative;
+                z-index: 1000
+            }
+
+            .option-input7:hover {
+                background: #9faab7
+            }
+
+            .option-input7:checked {
+                background: #E91E63
+            }
+
+            .option-input7:checked::before {
+                height: 40px;
+                width: 40px;
+                position: absolute;
+                content: "\f111";
+                font-family: "Font Awesome 5 Free";
+                display: inline-block;
+                font-size: 26.66667px;
+                text-align: center;
+                line-height: 40px
+            }
+
+            .option-input7:checked::after {
+                -webkit-animation: click-wave 0.25s;
+                -moz-animation: click-wave 0.25s;
+                animation: click-wave 0.25s;
+                background: #E91E63;
+                content: '';
+                display: block;
+                position: relative;
+                z-index: 100
+            }
+
+            .option-input7.radio {
+                border-radius: 50%
+            }
+
+            .option-input7.radio::after {
+                border-radius: 50%
+            }
+            .option-input8 {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                -ms-appearance: none;
+                -o-appearance: none;
+                appearance: none;
+                position: relative;
+                top: 13.33333px;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                height: 40px;
+                width: 40px;
+                transition: all 0.15s ease-out 0s;
+                background: #cbd1d8;
+                border: none;
+                color: #fff;
+                cursor: pointer;
+                display: inline-block;
+                margin-right: 0.5rem;
+                outline: none;
+                position: relative;
+                z-index: 1000
+            }
+
+            .option-input8:hover {
+                background: #9faab7
+            }
+
+            .option-input8:checked {
+                background: #E91E63
+            }
+
+            .option-input8:checked::before {
+                height: 40px;
+                width: 40px;
+                position: absolute;
+                content: "\f111";
+                font-family: "Font Awesome 5 Free";
+                display: inline-block;
+                font-size: 26.66667px;
+                text-align: center;
+                line-height: 40px
+            }
+
+            .option-input8:checked::after {
+                -webkit-animation: click-wave 0.25s;
+                -moz-animation: click-wave 0.25s;
+                animation: click-wave 0.25s;
+                background: #E91E63;
+                content: '';
+                display: block;
+                position: relative;
+                z-index: 100
+            }
+
+            .option-input8.radio {
+                border-radius: 50%
+            }
+
+            .option-input8.radio::after {
+                border-radius: 50%
+            }
+    </style>
+    <script>
+        function text(x) {
+            if (x==0)
+                document.getElementById("otherText").style.display='block';
+            else
+                document.getElementById("otherText").style.display='none';
+                $(".req1").attr('required', false);
+        }
+
+        function text2(x) {
+            if (x==0)
+                document.getElementById("otherText2").style.display='block';
+            else
+                document.getElementById("otherText2").style.display='none';
+                $(".req2").attr('required', false);
+        }
+        function text3(x) {
+            if (x==0)
+                document.getElementById("otherText3").style.display='block';
+            else
+                document.getElementById("otherText3").style.display='none';
+                $(".req3").attr('required', false);
+        }
+
+        function text4(x) {
+            if (x==0)
+                document.getElementById("otherText4").style.display='block';
+            else
+                document.getElementById("otherText4").style.display='none';
+                $(".req4").attr('required', false);
+        }
+        function text5(x) {
+            if (x==0)
+                document.getElementById("otherText5").style.display='block';
+            else
+                document.getElementById("otherText5").style.display='none';
+                $(".req5").attr('required', false);
+        }
+
+        function text6(x) {
+            if (x==0)
+                document.getElementById("otherText6").style.display='block';
+            else
+                document.getElementById("otherText6").style.display='none';
+                $(".req6").attr('required', false);
+        }
+        function text7(x) {
+            if (x==0)
+                document.getElementById("otherText7").style.display='block';
+            else
+                document.getElementById("otherText7").style.display='none';
+                $(".req7").attr('required', false);
+        }
+
+        function text8(x) {
+            if (x==0)
+                document.getElementById("otherText8").style.display='block';
+            else
+                document.getElementById("otherText8").style.display='none';
+                $(".req8").attr('required', false);
+        }
+    </script>
+</head>
+<body>
+
+<div class="container register">
+            <div class="row">
+                <div class="col-md-12">
+                        <div class="tab-pane fade show active text-align form-new" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <h3 class="register-heading">Webcity Store product form</h3>
+                            <div class="row register-form">
+                                <div class="col-md-12">
+                                    <form method="POST" autocomplete="off" name="google-sheet">
+                                        <div class="form-group">
+                                            <input type="text" name="Name" class="form-control" placeholder="Your Name" value=""/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" name="flatNumber" class="form-control" placeholder="Your flat number*" value="" required=""/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="number" name="Phone" class="form-control" placeholder="Phone Number*" value="" required=""/>
+                                        </div>
+                                        <h3 style="text-align: center;">What among the below are your preferred products(Choose one).</h3>
+         <div class="row d-flex justify-content-center mt-90">
+                 <div style="width: 400px;" class="card">
+                     <div class="card-body">
+                         <h4 class="card-title">Oils</h4>
+                         <p class="card-description">Which oil do you buy the most?</p>
+                         <div>
+                            <label> <input type="radio" class="option-input radio" name="Oil" value="GoldWinner" onclick="text(1)" /> GoldWinner </label>
+                            <label> <input type="radio" class="option-input radio" name="Oil" value="Mr.Gold" onclick="text(1)"/> Mr.Gold </label>
+                            <label> <input type="radio" class="option-input radio" name="Oil" value="Fortune" onclick="text(1)"/> Fortune </label>
+                            <label> <input style="margin-left: 30px;" type="radio" class="option-input radio" name="Oil" value="Other" onclick="text(0)" checked/> Other </label>
+                         </div>
+                     </div>
+                 </div>
+                 <div id="otherText">
+                     <h5>Brand:</h5> <input style="width: 325px; border-radius: 25px;" name="oil-other-text" type="text" class="form-control req1" placeholder="Please specify the brand*" required>
+             </div>
+
+         </div>
+        <div class="row d-flex justify-content-center mt-90">
+                 <div style="width: 400px;" class="card">
+                     <div class="card-body">
+                         <h4 class="card-title">Staples</h4>
+                         <p class="card-description">Find the custom animated radio button for your project</p>
+                         <div>
+                             <label> <input type="radio" class="option-input2 radio" name="Staples" value="Rice" onclick="text2(1)"/> Rice </label>
+                             <label> <input type="radio" class="option-input2 radio" name="Staples" value="Flour" onclick="text2(1)"/> Flour </label>
+                             <label> <input type="radio" class="option-input2 radio" name="Staples" value="Dals" onclick="text2(1)"/> Dals </label>
+                             <label> <input style="margin-left: 30px;" type="radio" class="option-input2 radio" name="Staples" value="Other" onclick="text2(0)" checked /> Other </label>
+                         </div>
+                     </div>
+                 </div>
+                 <div id="otherText2">
+                     <h5>Brand:</h5> <input style="width: 325px; border-radius: 25px;" name="staples-other-text" type="text" class="form-control req2" placeholder="Please specify the brand*" required>
+                 </div>
+         </div>
+
+        <div class="row d-flex justify-content-center mt-90">
+             <div class="col-md-4">
+                 <div class="card">
+                     <div class="card-body">
+                         <h4 class="card-title">chips</h4>
+                         <p class="card-description">Find the custom animated radio button for your project</p>
+                         <div>
+                             <label> <input type="radio" class="option-input3 radio" name="example2" value="" onclick="text3(1)"/> Radio option 1 </label>
+                             <label> <input type="radio" class="option-input3 radio" name="example2" value="" onclick="text3(1)"/> Radio option 2 </label>
+                             <label> <input type="radio" class="option-input3 radio" name="example2" value="" onclick="text3(1)"/> Radio option 3 </label>
+                             <label> <input type="radio" class="option-input3 radio" name="example2" value="" onclick="text3(0)" checked /> Other </label>
+                         </div>
+                     </div>
+                 </div>
+                 <div id="otherText3">
+                  Brand: <input name="otherText3" style="border-radius: 25px;" type="text" class="form-control req3" placeholder="Please specify the brand*" required>
+                 </div>
+             </div>
+         </div>
+
+<div class="row d-flex justify-content-center mt-90">
+             <div class="col-md-4">
+                 <div class="card">
+                     <div class="card-body">
+                         <h4 class="card-title">Custom animated radio button</h4>
+                         <p class="card-description">Find the custom animated radio button for your project</p>
+                         <div>
+                             <label> <input type="radio" class="option-input4 radio" name="example3" onclick="text4(1)"/> Radio option 1 </label>
+                             <label> <input type="radio" class="option-input4 radio" name="example3" onclick="text4(1)"/> Radio option 2 </label>
+                             <label> <input type="radio" class="option-input4 radio" name="example3" onclick="text4(1)"/> Radio option 3 </label>
+                             <label> <input type="radio" class="option-input4 radio" name="example3" onclick="text4(0)" checked /> Other </label>
+                         </div>
+                     </div>
+                 </div>
+                 <div id="otherText4">
+                  Brand: <input name="otherText4" style="border-radius: 25px;" type="text" class="form-control req4" placeholder="Please specify the brand*" required>
+                 </div>
+             </div>
+         </div>
+
+
+<div class="row d-flex justify-content-center mt-90">
+             <div class="col-md-4">
+                 <div class="card">
+                     <div class="card-body">
+                         <h4 class="card-title">Custom animated radio button</h4>
+                         <p class="card-description">Find the custom animated radio button for your project</p>
+                         <div>
+                             <label> <input type="radio" class="option-input5 radio" name="example4" onclick="text5(1)"/> Radio option 1 </label>
+                             <label> <input type="radio" class="option-input5 radio" name="example4" onclick="text5(1)"/> Radio option 2 </label>
+                             <label> <input type="radio" class="option-input5 radio" name="example4" onclick="text5(1)"/> Radio option 3 </label>
+                             <label> <input type="radio" class="option-input5 radio" name="example4" onclick="text5(0)" checked /> Other </label>
+                         </div>
+                     </div>
+                 </div>
+                 <div id="otherText5">
+                  Brand: <input name="otherText5" style="border-radius: 25px;" type="text" class="form-control req5" placeholder="Please specify the brand*" required>
+                 </div>
+             </div>
+         </div>
+
+<div class="row d-flex justify-content-center mt-90">
+             <div class="col-md-4">
+                 <div class="card">
+                     <div class="card-body">
+                         <h4 class="card-title">Custom animated radio button</h4>
+                         <p class="card-description">Find the custom animated radio button for your project</p>
+                         <div>
+                             <label> <input type="radio" class="option-input6 radio" name="example5" onclick="text6(1)"/> Radio option 1 </label>
+                             <label> <input type="radio" class="option-input6 radio" name="example5" onclick="text6(1)"/> Radio option 2 </label>
+                             <label> <input type="radio" class="option-input6 radio" name="example5" onclick="text6(1)"/> Radio option 3 </label>
+                             <label> <input type="radio" class="option-input6 radio" name="example5" onclick="text6(0)" checked /> Other </label>
+                         </div>
+                     </div>
+                 </div>
+                 <div id="otherText6">
+                  Brand: <input name="otherText6" style="border-radius: 25px;" type="text" class="form-control req6" placeholder="Please specify the brand*" required>
+                 </div>
+             </div>
+         </div>
+
+
+<div class="row d-flex justify-content-center mt-90">
+             <div class="col-md-4">
+                 <div class="card">
+                     <div class="card-body">
+                         <h4 class="card-title">Custom animated radio button</h4>
+                         <p class="card-description">Find the custom animated radio button for your project</p>
+                         <div>
+                             <label> <input type="radio" class="option-input7 radio" name="example6" onclick="text7(1)"/> Radio option 1 </label>
+                             <label> <input type="radio" class="option-input7 radio" name="example6" onclick="text7(1)"/> Radio option 2 </label>
+                             <label> <input type="radio" class="option-input7 radio" name="example6" onclick="text7(1)"/> Radio option 3 </label>
+                             <label> <input type="radio" class="option-input7 radio" name="example6" onclick="text7(0)" checked /> Other </label>
+                         </div>
+                     </div>
+                 </div>
+                 <div id="otherText7">
+                  Brand: <input name="otherText7" style="border-radius: 25px;" type="text" class="form-control req7" placeholder="Please specify the brand*" required>
+                 </div>
+             </div>
+         </div>
+
+
+<div class="row d-flex justify-content-center mt-90">
+             <div class="col-md-4">
+                 <div class="card">
+                     <div class="card-body">
+                         <h4 class="card-title">Custom animated radio button</h4>
+                         <p class="card-description">Find the custom animated radio button for your project</p>
+                         <div>
+                             <label> <input type="radio" class="option-input8 radio" name="example7" onclick="text8(1)"/> Radio option 1 </label>
+                             <label> <input type="radio" class="option-input8 radio" name="example7" onclick="text8(1)"/> Radio option 2 </label>
+                             <label> <input type="radio" class="option-input8 radio" name="example7" onclick="text8(1)"/> Radio option 3 </label>
+                             <label> <input type="radio" class="option-input8 radio" name="example7" onclick="text8(0)" checked /> Other </label>
+                         </div>
+                     </div>
+                 </div>
+                 <div id="otherText8">
+                  Brand*: <input name="otherText8" style="border-radius: 25px;" type="text" class="form-control req8" placeholder="Please specify the brand*" required>
+                 </div>
+                 <div class="form-group">
+                    <input style="text-align: center" type="submit" name="submit" class="btnSubmit btn-block" value="Submit" />
+                </div>
+             </div>
+         </div>
+    </form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+        <!-- Radio Button Form -->
+            <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbwVixoJChRsUICi9rn2E-kl1EAcYvFTuGoCwaRYPE1tN-KcqCH_YmDSgRTglXu09Thp/exec'
+            const form = document.forms['google-sheet']
+
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert("Thanks for filling the form"))
+                .catch(error => console.error('Error!', error.message))
+            })
+            </script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</html>
